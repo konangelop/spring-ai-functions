@@ -19,8 +19,13 @@ public class QuestionController {
     private final OpenAIService openAIService;
 
     @PostMapping("/weather")
-    public Answer askQuestion(@RequestBody Question question) {
-        return openAIService.getAnswer(question);
+    public Answer askWeatherQuestion(@RequestBody Question question) {
+        return openAIService.getWeatherAnswer(question);
+    }
+
+    @PostMapping("/stockprice")
+    public Answer askStockPriceQuestion(@RequestBody Question question) {
+        return openAIService.getStockQuoteAnswer(question);
     }
 
 }
